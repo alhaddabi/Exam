@@ -9,7 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 import com.itextpdf.text.Paragraph;
 
 public class main {
@@ -35,7 +37,11 @@ public class main {
 			Document document = new Document();
 			PdfWriter.getInstance(document, new FileOutputStream("C:\\Users\\Lenovo\\Desktop\\exam\\test"+count+".pdf"));
 			document.open();
-			document.add(new Paragraph("1971: The Omani flag is hoisted at the United Nations for the first time. Oman was one of just three Arab states not to break ties with Egypt when President Sadat of Egypt made peace with Israel following the Camp David Accords."));
+			document.add(new Paragraph("Qaboos bin Said Al Said (Arabic: قابوس بن سعيد آل سعيد, IPA: [qaː.buːs bin sa.ʕiːd ʔaːl sa.ʕiːd]; 18 November 1940 – 10 January 2020) was Sultan of Oman from 23 July 1970 until his death in 2020. A fifteenth-generation descendant of the founder of the House of Al Said, [3] he was the longest-serving leader in the Middle East and Arab world at the time of his death,[4] having ruled for almost half a century.\r\n"
+					+ "\r\n"
+					+ "The only son of Said bin Taimur, Sultan of Muscat and Oman, Qaboos was educated in Suffolk, England. After graduating from the Royal Military Academy Sandhurst, he served briefly in the British Army. He returned to Oman in 1966 and was the subject of considerable restrictions from his father. In 1970, Qaboos ascended to the Omani throne after overthrowing his father in a coup d'état, with British support. The country was subsequently renamed the Sultanate of Oman.\r\n"
+					+ "\r\n"
+					+ "As sultan, Qaboos implemented a policy of modernization and ended Oman's international isolation.[5][6] His reign saw a rise in living standards and development in the country, the abolition of slavery, the end of the Dhofar Rebellion, and the promulgation of Oman's constitution. Suffering from poor health in later life, Qaboos died in 2020. He had no children, so he entailed the royal court to reach consensus on a successor upon his death. As a precaution he hid a letter which named his successor in case an agreement was not achieved. After his death the royal court decided to view Qaboos's letter and named his intended successor, his cousin Haitham bin Tariq, as sultan.[7]"));
 			document.close();
 			}
 		}catch(Exception o)
@@ -53,7 +59,7 @@ public class main {
 		System.out.println("select the file numebr from ( 1 - 100 ) you want to search");
 		try {
 		int enter = sr.nextInt();
-		BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\exam\\test"+enter+".pdf"));
+		BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\exam\\test1"+enter+".pdf"));
 		System.out.println("Enter the word you want to find it ");
 		String find = sr.next();
 		find.split(" ");
@@ -82,10 +88,45 @@ public class main {
 		    }
 		
 		}
-		
-		
-
-	
+//		else if (Select == 3)
+//		{
+//			int numPage = 0;
+//			String search = "\"C:\\Users\\Lenovo\\Desktop\\exam\"";
+//			System.out.print("what world you want to find ??? ");
+//			File f = new File(search);
+//			String world=sr.next();
+//			File[] pdfFiles = f.listFiles((d, name) -> name.endsWith(".pdf"));
+//			
+//			for (File pdf : pdfFiles)
+//			{
+//				try
+//				{
+//					PdfReader reader = new PdfReader(pdf.getAbsolutePath());
+//					int numPages = reader.getNumberOfPages();
+//					boolean found = false;
+//					for (int i = 1 ; i <= numPages; i++)
+//					{
+//						String pageText = PdfTextExtractor.getTextFromPage(reader, i);
+//							if (pageText.toLowerCase().contains(world.toLowerCase()))
+//							{
+//								found = true ;
+//								break ;
+//							}
+//				}
+//				
+//			         if (found)
+//			         {
+//			        	 System.out.print("found" + world + "in" + pdf.getName());
+//			         }
+//			    }
+//			
+//			
+//			catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//			
+			
+			
 		
 		else if (Select == 0)
 		{
@@ -95,10 +136,12 @@ public class main {
 		}
 		sr.close();
 		System.out.println("thanks!!!!!!");
+	
+	}
 
 		
 	}
-}
+
  
         
     
